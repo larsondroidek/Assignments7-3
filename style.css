@@ -1,0 +1,150 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1f2937;
+  background-color: #f1f5f9;
+  line-height: 1.5;
+}
+
+.page-header {
+  padding: 32px 16px 8px;
+  text-align: center;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* ===================== PRODUCT LISTING ===================== */
+.product-list {
+  display: flex;                 /* cards in a row */
+  flex-wrap: wrap;               /* ...that wraps to the next line when there is no room */
+  gap: 24px;                     /* space between cards (rows and columns) */
+}
+
+/*
+  flex: 1 1 250px  =  flex-grow: 1 | flex-shrink: 1 | flex-basis: 250px
+  - flex-basis 250px: each card wants to be 250px wide
+  - flex-grow 1:      leftover space on a row is shared equally, so cards fill the row
+  - flex-shrink 1:    cards may shrink if needed
+  Result: 3 cards per row on desktop, 2 on a tablet, 1 on a phone.
+*/
+.product-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 250px;
+  max-width: 360px;              /* stops a lone card on the last row from becoming too wide */
+  overflow: hidden;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+.product-card__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.product-card__body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;                  /* body fills the card, so buttons align at the bottom */
+  padding: 16px;
+}
+
+.product-card__name {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+}
+
+.product-card__price {
+  margin: 0 0 16px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #16a34a;
+}
+
+.product-card__button {
+  margin-top: auto;              /* pushes the button to the bottom */
+  padding: 10px;
+  text-align: center;
+  font-weight: 600;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #2563eb;
+  border-radius: 8px;
+}
+
+.product-card__button:hover,
+.product-card__button:focus-visible {
+  background-color: #1d4ed8;
+}
+
+/* ===================== EXPERIMENT: grow / shrink / basis ===================== */
+.experiment {
+  margin-top: 48px;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 14px;
+}
+
+.experiment h2 {
+  margin-top: 0;
+}
+
+.experiment h3 {
+  margin: 24px 0 8px;
+  font-size: 1rem;
+}
+
+.flex-demo {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background-color: #e2e8f0;
+  border-radius: 10px;
+}
+
+.flex-demo--narrow {
+  max-width: 600px;              /* 3 x 400px = 1200px do not fit: shrink decides who gives up space */
+}
+
+.flex-demo__box {
+  padding: 16px 8px;
+  text-align: center;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #2563eb;
+  border-radius: 8px;
+}
+
+/* flex-grow: free space is divided 1 : 2 : 1 */
+.grow-1 { flex-grow: 1; }
+.grow-2 { flex-grow: 2; background-color: #7c3aed; }
+
+/* flex-basis: starting size (no grow, no shrink in this demo) */
+.basis-100 { flex: 0 0 100px; }
+.basis-200 { flex: 0 0 200px; background-color: #7c3aed; }
+.basis-300 { flex: 0 0 300px; background-color: #db2777; }
+
+/* flex-shrink: all boxes start at 400px; 0 = does not shrink, 2 = shrinks twice as fast */
+.shrink-1 { flex: 0 1 400px; }
+.shrink-2 { flex: 0 2 400px; background-color: #7c3aed; }
+.shrink-0 { flex: 0 0 400px; background-color: #db2777; }
+
+/* overflow safety for the narrow demo on phones */
+@media (max-width: 640px) {
+  .experiment {
+    overflow-x: auto;
+  }
+}

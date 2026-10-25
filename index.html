@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Responsive product listing built with Flexbox: flex-wrap, gap, flex-grow, flex-shrink and flex-basis." />
+    <title>Responsive Product Listing</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="page-header">
+      <h1>Our Products</h1>
+      <p>Resize the window: the cards wrap to a new line when there is not enough space.</p>
+    </header>
+
+    <main>
+      <!-- ===== Product listing: flex container ===== -->
+      <section class="product-list" aria-label="Products">
+        <article class="product-card">
+          <img class="product-card__image" src="images/headphones.svg" alt="Blue over-ear headphones on a yellow background" width="240" height="240" />
+          <div class="product-card__body">
+            <h3 class="product-card__name">Wireless Headphones</h3>
+            <p class="product-card__price">$59.99</p>
+            <a href="#" class="product-card__button">Add to cart</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img class="product-card__image" src="images/watch.svg" alt="Smart watch with a blue screen on a green background" width="240" height="240" />
+          <div class="product-card__body">
+            <h3 class="product-card__name">Smart Watch</h3>
+            <p class="product-card__price">$129.00</p>
+            <a href="#" class="product-card__button">Add to cart</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img class="product-card__image" src="images/backpack.svg" alt="Red travel backpack on a pink background" width="240" height="240" />
+          <div class="product-card__body">
+            <h3 class="product-card__name">Travel Backpack</h3>
+            <p class="product-card__price">$44.50</p>
+            <a href="#" class="product-card__button">Add to cart</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img class="product-card__image" src="images/bottle.svg" alt="Blue steel water bottle on a light blue background" width="240" height="240" />
+          <div class="product-card__body">
+            <h3 class="product-card__name">Steel Bottle</h3>
+            <p class="product-card__price">$18.00</p>
+            <a href="#" class="product-card__button">Add to cart</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img class="product-card__image" src="images/lamp.svg" alt="Desk lamp with an amber shade on a purple background" width="240" height="240" />
+          <div class="product-card__body">
+            <h3 class="product-card__name">Desk Lamp</h3>
+            <p class="product-card__price">$32.99</p>
+            <a href="#" class="product-card__button">Add to cart</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img class="product-card__image" src="images/camera.svg" alt="Orange and brown instant camera on a peach background" width="240" height="240" />
+          <div class="product-card__body">
+            <h3 class="product-card__name">Instant Camera</h3>
+            <p class="product-card__price">$89.99</p>
+            <a href="#" class="product-card__button">Add to cart</a>
+          </div>
+        </article>
+      </section>
+
+      <!-- ===== flex-grow / flex-shrink / flex-basis experiment ===== -->
+      <section class="experiment" aria-labelledby="exp-title">
+        <h2 id="exp-title">flex-grow, flex-shrink and flex-basis</h2>
+
+        <h3><code>flex-grow</code>: 1, 2, 1 (free space is shared in this ratio)</h3>
+        <div class="flex-demo">
+          <div class="flex-demo__box grow-1">grow 1</div>
+          <div class="flex-demo__box grow-2">grow 2</div>
+          <div class="flex-demo__box grow-1">grow 1</div>
+        </div>
+
+        <h3><code>flex-basis</code>: 100px, 200px, 300px (starting sizes, no grow)</h3>
+        <div class="flex-demo">
+          <div class="flex-demo__box basis-100">basis 100px</div>
+          <div class="flex-demo__box basis-200">basis 200px</div>
+          <div class="flex-demo__box basis-300">basis 300px</div>
+        </div>
+
+        <h3><code>flex-shrink</code>: three 400px boxes in a small container (0 = never shrinks)</h3>
+        <div class="flex-demo flex-demo--narrow">
+          <div class="flex-demo__box shrink-1">shrink 1</div>
+          <div class="flex-demo__box shrink-2">shrink 2</div>
+          <div class="flex-demo__box shrink-0">shrink 0</div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
